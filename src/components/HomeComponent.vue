@@ -1,14 +1,11 @@
 <template>
     <div class="container">
-      <HeaderComponent />
+      <HeaderComponent @load-products="handleLoadProducts" @delete-products="handleDeleteProducts"/>
       <section>
         <div class="container my-5">
           <header class="mb-4">
             <h3>PRODUCTS</h3>
           </header>
-          <div v-if="hasError">
-            <h5>Could not retrieve all products. Please try later!</h5>
-          </div>
           <div>
             <ProductComponent/>
           </div>
@@ -30,7 +27,14 @@
     FooterComponent,
     HeaderComponent,
     },
-
+    methods: {
+      handleLoadProducts() {
+        window.location.reload();
+      },
+      handleDeleteProducts() {
+        window.location.reload();
+      }
+    },
   }
   </script>
   

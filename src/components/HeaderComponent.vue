@@ -21,6 +21,7 @@
   </template>
   
   <script>
+  import ProductService from '@/ProductService';
   
   export default {
     name: "HeaderComponent",
@@ -28,11 +29,21 @@
       return {};
     },
     methods: {
-      loadProducts() {
-        console.log("LOAD PRODUCTS");
+      async loadProducts() {
+        try {
+          await ProductService.getWarehouse();
+        } catch (error) {
+          console.error('Error getting products from Warehouse', error)
+        }
+        this.$emit('load-products');
       },
-      deleteProducts() {
-        console.log("DELETE PRODUCTS");
+      async deleteProducts() {
+        try{
+          await ProductService.deleteProducts();
+        } catch (error) {
+          console.error('Error deleting products from local DB', error)
+        }
+        this.$emit('delete-products')
       }
     },
   };

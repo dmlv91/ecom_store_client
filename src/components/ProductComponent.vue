@@ -1,9 +1,6 @@
 <template>
   <div class="container">
-    <h1>Products</h1>
-
     <hr>
-    <p class="error" v-if="error">{{ error }}</p>
     <div class="products-container">
       <div class="product" 
       v-for="(product,index) in products"

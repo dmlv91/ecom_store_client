@@ -35,7 +35,7 @@ class ProductService {
     }
     //Delete all products
     static deleteProducts() {
-        return axios.delete(url);
+        return axios.delete(url)
     }
 }
 
